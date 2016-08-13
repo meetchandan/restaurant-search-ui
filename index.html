@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<header>
+		<meta charset="utf-8">
+		<title> AutoComplete</title>
+	</header>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="controllers/autoCompleteController.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/table1.css">
+
+
+	<body ng-app="app" ng-controller="autoCompleteController">
+		<div class="list-wrapper">
+			<h2>Welcome to Restaurant Search</h2>
+			<div>
+				<input type="text" placeholder="Search for restaurant" class="input" ng-keydown="checkKeyDown($event)" ng-keyup="checkKeyUp($event)"  ng-model="searchText" ng-change="search()" />
+			</div>
+			 <ul class="suggestions-list">
+                <li ng-repeat="suggestion in suggestions track by $index" ng-class="{active : selectedIndex === $index}" ng-click="AssignValueAndHide($index)">
+                	{{suggestion.name}} in {{suggestion.city}}</li>
+            </ul>
+            <table class="rwd-table" ng-if="show!==undefined">
+  				<tr>
+  				  <th>Restaurant</th>
+  				  <th>City</th>
+  				</tr>
+  				<tr>
+  				  <td data-th="Restaurant">{{show.name}}</td>
+  				  <td data-th="City">{{show.city}}</td>
+  				</tr>
+  			</table>
+		</div>
+	</body>
+</html>

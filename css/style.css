@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.list-wrapper {
+	position:absolute;
+	width:300px;
+	height:150px;
+	top:40%;
+	margin-top:-75px;
+	left:50%;
+	margin-left:-150px;
+}
+h1{
+	text-align:center;	
+}
+.label{
+	padding:5px 0px;
+	text-align:center;	
+}
+.input{
+	width:230px;
+	height:30px;
+	outline:none;
+	padding:0px 10px;
+	margin:0px auto;
+	display:block;
+}
+.suggestions-list {
+	position: absolute;
+	list-style-type: none;
+	margin: 0 0 0 23px;
+	padding: 0;
+	overflow: auto;
+}
+.suggestions-list li {
+	color: #000000;
+	padding: 10px 10px;
+	height:10px;
+	cursor: pointer;
+	background: #f9f9f9;
+	border-bottom: 1px solid #eeeeee;
+	width:234px;
+}
+.suggestions-list li:hover {
+	background: #eeeeee;
+}
+.suggestions-list li:active,
+.suggestions-list li.active {
+	color: #FFFFFF;
+	background: #0099FF;
+	width:234px;
+}
+.suggestions-list:focus{
+	outline:none;
+}
