@@ -4,7 +4,8 @@ app.controller('autoCompleteController', function($scope, $http) {
     $scope.suggestions = [];
     $scope.selectedIndex = -1;
     $scope.search = function() {
-        $http.get("http://localhost:8080/search/" + $scope.searchText)
+        if($scope.searchText!=""){
+        	$http.get("http://localhost:8080/search/" + $scope.searchText)
             .success(function(data) {
             	$scope.errorMessage = ""
                 $scope.suggestions = data;
@@ -12,6 +13,7 @@ app.controller('autoCompleteController', function($scope, $http) {
             .error(function(data) {
                 $scope.errorMessage = "Couldn't connect to Server, Please check if the server is up.";
             });
+        }
     }
 
     $scope.$watch('selectedIndex', function(val) {
