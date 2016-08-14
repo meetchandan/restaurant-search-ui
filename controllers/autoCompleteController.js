@@ -15,12 +15,12 @@ app.controller('autoCompleteController', function($scope, $http) {
 
     $scope.$watch('selectedIndex', function(val) {
         if (val !== -1) {
-            $scope.searchText = $rootScope.suggestions[$rootScope.selectedIndex];
+            $scope.searchText = $scope.suggestions[$scope.selectedIndex].name + " in " + $scope.suggestions[$scope.selectedIndex].city;
         }
     });
 
     $scope.checkKeyDown = function(event) {
-            if ($rootScope.suggestions.length !== 0) {
+            if ($scope.suggestions.length !== 0) {
                 if (event.keyCode === 40) { //down key, increment selectedIndex
                     event.preventDefault();
                     if ($scope.selectedIndex + 1 !== $scope.suggestions.length) {
@@ -33,7 +33,7 @@ app.controller('autoCompleteController', function($scope, $http) {
                     }
                 } else if (event.keyCode === 13) { //enter key, empty suggestions array
                     event.preventDefault();
-                    $scope.searchText = $rootScope.suggestions[$rootScope.selectedIndex];
+                    $scope.searchText = $scope.suggestions[$scope.selectedIndex].name + " in " + $scope.suggestions[$scope.selectedIndex].city;
                     $scope.suggestions = [];
                 }
             }
