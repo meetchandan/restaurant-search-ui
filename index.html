@@ -11,6 +11,22 @@
 
 
 	<body ng-app="app" ng-controller="autoCompleteController">
+		<div>
+			<p>Note: Enter the entire word of the city/restaurant you are searching. Partial Text Search is not yet supported</p>
+  			<p>For eg. There is a restaurant <strong>Malaka Spice in Hyderabad </strong> </p>
+  			<p>If you type <b>Hyderabad</b> - you'll see the result</p>
+  			<p>If you type <b>Malaka Spice</b> - you'll see the result</p>
+  			<p>If you type <b>Malaka Hyderabad</b> - you'll see the result</p>
+  			<p>If you type <b>Malaka S</b> - you'll not see the result</p>
+  			<p>If you type <b>Hyderabad M</b> - you'll not see the result</p>
+		</div>
+		<br></br>
+		<div>
+			<p>Few query strings to try: </p>
+			<p>New</p>
+			<p>Yale</p>
+			<p>Golden</p>
+		</div>
 		<div class="list-wrapper">
 			<h2>Welcome to Restaurant Search</h2>
 			<div>
@@ -24,12 +40,15 @@
   				<tr>
   				  <th>Restaurant</th>
   				  <th>City</th>
+  				  <th>Address</th>
   				</tr>
   				<tr>
   				  <td data-th="Restaurant">{{show.name}}</td>
   				  <td data-th="City">{{show.city}}</td>
+  				  <td data-th="Address">{{show.address}}</td>
   				</tr>
   			</table>
+
 		</div>
 	</body>
 </html>
