@@ -34,6 +34,7 @@ app.controller('autoCompleteController', function($scope, $http) {
                 } else if (event.keyCode === 13) { //enter key, empty suggestions array
                     event.preventDefault();
                     $scope.searchText = $scope.suggestions[$scope.selectedIndex].name + " in " + $scope.suggestions[$scope.selectedIndex].city;
+                    $scope.show = $scope.suggestions[$scope.selectedIndex];
                     $scope.suggestions = [];
                 }
             }
