@@ -5,11 +5,12 @@ app.controller('autoCompleteController', function($scope, $http) {
     $scope.selectedIndex = -1;
     $scope.search = function() {
         $http.get("http://localhost:8080/search/" + $scope.searchText)
-            .success(function(data, status, headers, config) {
+            .success(function(data) {
+            	$scope.errorMessage = ""
                 $scope.suggestions = data;
             })
-            .error(function(data, status, headers, config) {
-                $scope.statcode = status;
+            .error(function(data) {
+                $scope.errorMessage = "Couldn't connect to Server, Please check if the server is up.";
             });
     }
 
